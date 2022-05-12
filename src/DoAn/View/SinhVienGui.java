@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 import DoAn.SinhVienDao;
 import DoAn.Model.SinhVien;
+import builder.SinhVienBuilder;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -178,7 +179,7 @@ public class SinhVienGui extends JFrame {
 							gioitinh="Nữ";
 							String email = textField_email.getText();
 							String ngaysinh = datePicker_Date.getJFormattedTextField().getText();
-							SinhVien sv = new SinhVien(id,ten,lop,sdt,gioitinh,ngaysinh,email);
+							SinhVien sv = new SinhVienBuilder().setId(id).setTen(ten).setGioiTinh(gioitinh).setNgaysinh(ngaysinh).setLop(lop).setEmail(email).setSDT(sdt).build();
 							SinhVienDao.insert(sv);
 							LoadTable(table);
 						}
