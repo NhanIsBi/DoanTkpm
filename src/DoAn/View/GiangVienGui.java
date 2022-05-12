@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 import DoAn.GiangVienDao;
 import DoAn.Model.GiangVien;
+import builder.GiangvienBuilder;
 import net.sourceforge.jdatepicker.impl.JDatePicker_Date;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -185,7 +186,7 @@ public class GiangVienGui extends JFrame {
 							gioitinh="Nam";
 							String email = textField_email.getText();
 							String ngaysinh = datePicker_Date.getJFormattedTextField().getText();
-							GiangVien sv = new GiangVien(id,ten,gioitinh,ngaysinh,email,sdt);
+							GiangVien sv = new GiangvienBuilder().setId(id).setTen(ten).setGioiTinh(gioitinh).setNgaysinh(ngaysinh).setEmail(email).setSDT(sdt).build();
 							GiangVienDao.insert(sv);
 							LoadTable(table);
 						}
@@ -193,7 +194,7 @@ public class GiangVienGui extends JFrame {
 							gioitinh="Nữ";
 							String email = textField_email.getText();
 							String ngaysinh = datePicker_Date.getJFormattedTextField().getText();
-							GiangVien sv = new GiangVien(id,ten,gioitinh,ngaysinh,email,sdt);
+							GiangVien sv = new GiangvienBuilder().setId(id).setTen(ten).setGioiTinh(gioitinh).setNgaysinh(ngaysinh).setEmail(email).setSDT(sdt).build();
 							GiangVienDao.insert(sv);
 							LoadTable(table);
 						}
@@ -248,13 +249,13 @@ public class GiangVienGui extends JFrame {
 					String gioitinh;
 					if(rdbtnNam.isSelected()) {
 						gioitinh="Nam";
-						GiangVien sv = new GiangVien(id,ten,gioitinh,ngaysinh,email,sdt);
+						GiangVien sv = new GiangvienBuilder().setId(id).setTen(ten).setGioiTinh(gioitinh).setNgaysinh(ngaysinh).setEmail(email).setSDT(sdt).build();
 						GiangVienDao.update(sv);
 						LoadTable(table);
 					}
 					else if (RadioButton_Nu.isSelected()) {
 						gioitinh="Nữ";
-						GiangVien sv = new GiangVien(id,ten,gioitinh,ngaysinh,email,sdt);
+						GiangVien sv = new GiangvienBuilder().setId(id).setTen(ten).setGioiTinh(gioitinh).setNgaysinh(ngaysinh).setEmail(email).setSDT(sdt).build();
 						GiangVienDao.update(sv);
 						LoadTable(table);
 					}

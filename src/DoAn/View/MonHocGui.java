@@ -12,6 +12,7 @@ import DoAn.GiangVienDao;
 import DoAn.MonHocDao;
 import DoAn.Model.GiangVien;
 import DoAn.Model.MonHoc;
+import builder.MonhocBuilder;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -153,7 +154,7 @@ public class MonHocGui extends JFrame {
 					if(svt==null) {
 						String ten = textField_ten.getText();
 						String tinchi = (String) comboBox.getSelectedItem();
-						MonHoc sv = new MonHoc(id,ten,tinchi);
+						MonHoc sv = new MonhocBuilder().setid(id).setten(ten).setidgv(tinchi).build();
 						MonHocDao.insert(sv);
 						LoadTable(table);
 					}else {
@@ -201,7 +202,7 @@ public class MonHocGui extends JFrame {
 					if(svt!=null) {
 						String ten = textField_ten.getText();
 						String idgv = (String) comboBox.getSelectedItem();
-						MonHoc sv = new MonHoc(id,ten,idgv);
+						MonHoc sv = new MonhocBuilder().setid(id).setten(ten).setidgv(idgv).build();
 						MonHocDao.update(sv);
 						LoadTable(table);
 					}else {

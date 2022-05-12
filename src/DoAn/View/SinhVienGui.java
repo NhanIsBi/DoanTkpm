@@ -171,7 +171,7 @@ public class SinhVienGui extends JFrame {
 							gioitinh="Nam";
 							String email = textField_email.getText();
 							String ngaysinh = datePicker_Date.getJFormattedTextField().getText();
-							SinhVien sv = new SinhVien(id,ten,lop,sdt,gioitinh,ngaysinh,email);
+							SinhVien sv = new SinhVienBuilder().setId(id).setTen(ten).setGioiTinh(gioitinh).setNgaysinh(ngaysinh).setLop(lop).setEmail(email).setSDT(sdt).build();
 							SinhVienDao.insert(sv);
 							LoadTable(table);
 						}
@@ -236,13 +236,13 @@ public class SinhVienGui extends JFrame {
 						String gioitinh;
 						if(rdbtnNam.isSelected()) {
 							gioitinh="Nam";
-							SinhVien sv = new SinhVien(id,ten,lop,sdt,gioitinh,ngaysinh,email);
+							SinhVien sv = new SinhVienBuilder().setId(id).setTen(ten).setGioiTinh(gioitinh).setNgaysinh(ngaysinh).setLop(lop).setEmail(email).setSDT(sdt).build();
 							SinhVienDao.update(sv);
 							LoadTable(table);
 						}
 						else if (RadioButton_Nu.isSelected()) {
 							gioitinh="Nữ";
-							SinhVien sv = new SinhVien(id,ten,lop,sdt,gioitinh,ngaysinh,email);
+							SinhVien sv = new SinhVienBuilder().setId(id).setTen(ten).setGioiTinh(gioitinh).setNgaysinh(ngaysinh).setLop(lop).setEmail(email).setSDT(sdt).build();
 							SinhVienDao.update(sv);
 							LoadTable(table);
 						}

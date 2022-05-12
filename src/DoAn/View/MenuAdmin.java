@@ -111,7 +111,6 @@ public class MenuAdmin extends JFrame {
 		JButton btnNewButton_1_4 = new JButton("Qu\u1EA3n l\u00FD t\u00E0i kho\u1EA3n");
 		btnNewButton_1_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				DangKy dn=new DangKy();
 				dn.setVisible(true);
 			}

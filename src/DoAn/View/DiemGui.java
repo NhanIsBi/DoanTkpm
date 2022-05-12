@@ -16,6 +16,7 @@ import DoAn.Model.Diem;
 import DoAn.Model.GiangVien;
 import DoAn.Model.MonHoc;
 import DoAn.Model.SinhVien;
+import builder.DiemBuilder;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -186,7 +187,7 @@ public class DiemGui extends JFrame {
 					dt=DiemDao.find(idsv,idgv,idmh);
 					if(dt==null) {
 						String diem = textField_diem.getText();
-						Diem di = new Diem(idsv,idgv,idmh,diem);
+						Diem di = new DiemBuilder().setidsv(idsv).setidgv(idgv).setidmh(idmh).setdiem(diem).build();
 						DiemDao.insert(di);
 						LoadTable(table);
 					}else {
@@ -236,7 +237,7 @@ public class DiemGui extends JFrame {
 					Diem dt =DiemDao.find(idsv,idgv,idmh);
 					if(dt!=null) {
 						String di = textField_diem.getText();
-						Diem sv = new Diem(idsv,idgv,idmh,di);
+						Diem sv = new DiemBuilder().setidsv(idsv).setidgv(idgv).setidmh(idmh).setdiem(di).build();
 						DiemDao.update(sv);
 						LoadTable(table);
 					}else {

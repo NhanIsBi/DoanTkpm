@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 import DoAn.AccountDao;
 import DoAn.Model.Account;
+import builder.AccountBuilder;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -176,18 +177,18 @@ public class DangKy extends JFrame {
 						String vitri;
 						if(rdbtnNewRadioButton_AD.isSelected()) {
 							vitri="admin";
-							Account sv = new Account(user,pass,vitri);
+							Account sv = new AccountBuilder().setusername(user).setpass(pass).setvitri(vitri).build();
 							AccountDao.insert(sv);
 							LoadTable(table);
 						}
 						else if (rdbtnGingVin.isSelected()) {
 							vitri="giangvien";
-							Account sv = new Account(user,pass,vitri);
+							Account sv = new AccountBuilder().setusername(user).setpass(pass).setvitri(vitri).build();
 							AccountDao.insert(sv);
 							LoadTable(table);
 						}else if (rdbtnSinhVin.isSelected()) {
 							vitri="sinhvien";
-							Account sv = new Account(user,pass,vitri);
+							Account sv = new AccountBuilder().setusername(user).setpass(pass).setvitri(vitri).build();
 							AccountDao.insert(sv);
 							LoadTable(table);
 						}
@@ -242,18 +243,18 @@ public class DangKy extends JFrame {
 						String vitri;
 						if(rdbtnNewRadioButton_AD.isSelected()) {
 							vitri="admin";
-							Account sv = new Account(user,pass,vitri);
+							Account sv = new AccountBuilder().setusername(user).setpass(pass).setvitri(vitri).build();
 							AccountDao.update(sv);
 							LoadTable(table);
 						}
 						else if (rdbtnGingVin.isSelected()) {
 							vitri="giangvien";
-							Account sv = new Account(user,pass,vitri);
+							Account sv = new AccountBuilder().setusername(user).setpass(pass).setvitri(vitri).build();
 							AccountDao.update(sv);
 							LoadTable(table);
 						}else if (rdbtnSinhVin.isSelected()) {
 							vitri="sinhvien";
-							Account sv = new Account(user,pass,vitri);
+							Account sv = new AccountBuilder().setusername(user).setpass(pass).setvitri(vitri).build();
 							AccountDao.update(sv);
 							LoadTable(table);
 						}
